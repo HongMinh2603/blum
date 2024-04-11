@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <vector>
+#include<time.h>
 using namespace std;
 int isPrime(int n)
 {
@@ -44,13 +45,15 @@ bool checkBlumNumber(vector<int> blumNumbers, int M) {
     }
     return false;
 }
-
 int main() {
     int N, M;
     cout << "Nhap so N: ";
     cin >> N;
+    clock_t begin = clock();
     vector<int> blumNumbers = generateBlumNumbers(N);
     printBlumPairs(blumNumbers);
+    clock_t end = clock();
+    cout<<"time run: "<<(float)(end-begin)/CLOCKS_PER_SEC<<"s"<<endl;
     cout << "Nhap so M: ";
     cin >> M;
     if (checkBlumNumber(blumNumbers, M)) cout << M << " la so Blum." << endl;
